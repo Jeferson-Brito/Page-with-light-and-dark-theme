@@ -34,10 +34,11 @@ body *{
 }
 
 #container{
-  width: 360px;
-  height: 712px;
+  width: 100%;
+  max-width: 588px;
   margin: 56px auto 0px;
   padding: 0px 24px;
+  height: 100vh;
 }
 
 /* profile */
@@ -83,6 +84,7 @@ body *{
   left: 0;
   top: 50%;
   transform: translateY(-50%);
+  animation: slide-back 0.3s;
 }
 
 #switch span{
@@ -97,8 +99,11 @@ body *{
 }
 
 .light #switch button{
-  right: 0;
-  left: initial;
+  animation: slide-in 0.3s forwards;
+}
+
+#switch button:hover{
+  outline: 8px solid var(--highlight-hover);
 }
 
 /* Lista de links */
@@ -165,4 +170,24 @@ footer{
 
 footer a:hover{
   color: aqua;
+}
+
+/* animation */
+
+@keyframes slide-in {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes slide-back {
+  from {
+    left: 50%
+  }
+  to {
+    left: 0;
+  }
 }
